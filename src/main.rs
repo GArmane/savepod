@@ -1,3 +1,5 @@
+use savepod::cli;
+
 fn main() {
-    println!("Hello, world!");
+    cli::run().expect("Unexpected error")
 }
