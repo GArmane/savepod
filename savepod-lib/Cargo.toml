@@ -1,0 +1,9 @@
+[package]
+name = "savepod-lib"
+version = "0.1.0"
+edition = "2024"
+authors = ["garmane <giovanniarmane@gmail.com>"]
+description = "Game save backup tool"
+repository = "https://github.com/garmane/savepod"
+readme = "README.md"
+license = "GPLv3"

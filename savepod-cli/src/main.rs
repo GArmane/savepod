@@ -1,6 +1,3 @@
-use std::io::Error;
-
-use crate::prelude;
 use clap::{Parser, Subcommand};
 
 #[derive(Parser)]
@@ -18,20 +15,13 @@ enum Commands {
     Restore,
 }
 
-fn handle_commands() {
-    println!("Nothing implemented yet!");
-}
-
-fn handle_version() {
-    let version = &*prelude::VERSION;
-    println!("Savepod version {version}");
-}
-
-pub fn run() -> Result<(), Error> {
+fn main() {
     let cli = Cli::parse();
     match cli.command {
-        Some(_) => handle_commands(),
-        _ => handle_version(),
+        Some(_) => println!("Not implemented yet!"),
+        _ => {
+            let version = &*savepod_lib::VERSION;
+            println!("Lib version is: {version}");
+        }
     }
-    Ok(())
 }

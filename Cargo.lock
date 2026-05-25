@@ -135,11 +135,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "savepod"
+name = "savepod-cli"
 version = "0.1.0"
 dependencies = [
  "clap",
+ "savepod-lib",
 ]
+
+[[package]]
+name = "savepod-lib"
+version = "0.1.0"
 
 [[package]]
 name = "strsim"

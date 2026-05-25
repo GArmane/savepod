@@ -1,15 +1,3 @@
-[package]
-name = "savepod"
-version = "0.1.0"
-edition = "2024"
-authors = ["garmane <giovanniarmane@gmail.com>"]
-description = "Game save backup tool"
-repository = "https://github.com/garmane/savepod"
-readme = "README.md"
-license = "GPLv3"
-
-[[bin]]
-name = "savepod"
-
-[dependencies]
-clap = { version = "4.6.1", features = ["derive"] }
+[workspace]
+members = ["savepod-cli","savepod-lib"]
+resolver = "3"
