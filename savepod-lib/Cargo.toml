@@ -7,3 +7,12 @@ description = "Game save backup tool"
 repository = "https://github.com/garmane/savepod"
 readme = "README.md"
 license = "GPLv3"
+
+[dependencies]
+directories = "6.0.0"
+mockito = "1.7.2"
+reqwest = { version = "0.13.3", features = ["blocking", "json"] }
+rstest = "0.26.1"
+serde = { version = "1.0.228", features = ["derive"] }
+thiserror = "2.0.18"
+url = "2.5.8"

@@ -1,27 +1,21 @@
-use clap::{Parser, Subcommand};
+use savepod_lib::{
+    manifest::Manifest,
+    remote::{Fetch, Remote},
+    storage::{LocalDataStore, Store},
+};
 
-#[derive(Parser)]
-#[command(name = "Savepod")]
-#[command(version, about, long_about=None)]
-struct Cli {
-    #[command(subcommand)]
-    command: Option<Commands>,
-}
-
-#[derive(Subcommand)]
-enum Commands {
-    Scan,
-    Backup,
-    Restore,
-}
+const URL: &str = "https://raw.githubusercontent.com/mtkennerly/ludusavi-manifest/master/data/manifest.yaml";
 
 fn main() {
-    let cli = Cli::parse();
-    match cli.command {
-        Some(_) => println!("Not implemented yet!"),
-        _ => {
-            let version = &*savepod_lib::VERSION;
-            println!("Lib version is: {version}");
-        }
-    }
+    let storage = LocalDataStore::new().unwrap_or_else(|err| {
+        eprintln!("Fatal error: {}", err);
+        std::process::exit(1);
+    });
+    let _manifest: Manifest = Remote::new()
+        .fetch(URL)
+        .map(|manifest| storage.store(manifest))
+        .unwrap_or_else(|err| {
+            eprintln!("Fatal error: {}", err);
+            std::process::exit(1);
+        });
 }
