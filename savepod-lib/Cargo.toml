@@ -16,3 +16,6 @@ rstest = "0.26.1"
 serde = { version = "1.0.228", features = ["derive"] }
 thiserror = "2.0.18"
 url = "2.5.8"
+
+[dev-dependencies]
+tempfile = "3.27"

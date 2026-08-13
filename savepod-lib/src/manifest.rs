@@ -21,7 +21,7 @@ pub enum ManifestError {
     Generic,
 }
 
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub struct Manifest {
     pub source: Url,
     pub etag: String,
